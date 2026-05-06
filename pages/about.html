@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Data Safari — our mission, founding story, values, and the team building Tanzania's data education future.">
+  <title>About | Data Safari</title>
+  <script>document.documentElement.classList.add("js-enabled");</script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap');
+    :root{--night:#07120f;--night-2:#0b1b15;--panel:rgba(245,250,247,0.055);--panel-strong:rgba(245,250,247,0.09);--line:rgba(219,240,233,0.14);--text:#f4fbf7;--soft:rgba(244,251,247,0.76);--muted:rgba(244,251,247,0.56);--blue:#1f5bd8;--blue-2:#4a8cff;--green:#42b946;--green-2:#86e58d;--mint:#8fe5c0;--cream:#f5edd6;--clay:#c5694a;--shadow:0 24px 72px rgba(0,0,0,0.34);--display:"Playfair Display",Georgia,serif;--sans:"DM Sans","IBM Plex Sans",Arial,sans-serif;--mono:"JetBrains Mono",Consolas,monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;min-height:100%;overflow-x:hidden;background:radial-gradient(circle at 16% 18%,rgba(31,91,216,0.22),transparent 34%),radial-gradient(circle at 86% 10%,rgba(66,185,70,0.18),transparent 31%),linear-gradient(180deg,#081711 0%,var(--night) 64%,#06100c 100%);color:var(--text);font-family:var(--sans);line-height:1.6}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:radial-gradient(rgba(143,229,192,0.13) 1px,transparent 1px),linear-gradient(120deg,rgba(31,91,216,0.07),transparent 45%,rgba(66,185,70,0.08));background-size:34px 34px,100% 100%;mask-image:linear-gradient(180deg,black 0%,transparent 86%)}
+    a{color:inherit;text-decoration:none}img,svg{display:block;max-width:100%}button,input{font:inherit}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;background:rgba(7,18,15,0.66);backdrop-filter:blur(16px);transition:background 320ms ease-out,border-color 320ms ease-out}
+    .site-header.scrolled{background:rgba(7,18,15,0.96);border-color:var(--line);box-shadow:0 18px 42px rgba(0,0,0,0.26)}
+    .container,.nav-wrap{width:calc(100% - 40px);max-width:1180px;margin:0 auto}
+    .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:inline-flex;align-items:center}
+    .brand-logo{width:184px;height:auto;filter:drop-shadow(0 10px 22px rgba(31,91,216,0.22))}
+    .nav-menu{display:flex;align-items:center;gap:27px;margin:0;padding:0;list-style:none}
+    .nav-menu a:not(.nav-cta){color:var(--soft);font-size:0.95rem;font-weight:700;transition:color 260ms ease-out}
+    .nav-menu a:not(.nav-cta):hover{color:var(--green-2)}
+    .nav-menu a.nav-active{color:var(--green-2)}
+    .nav-menu a.nav-active::after{content:"";display:block;height:2px;background:var(--green-2);border-radius:99px;margin-top:2px}
+    .button,.nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 20px;border:1px solid rgba(143,229,192,0.42);border-radius:999px;background:linear-gradient(135deg,var(--blue),var(--green));color:white;font-weight:800;box-shadow:0 16px 42px rgba(31,91,216,0.24);transition:transform 300ms ease-out,box-shadow 300ms ease-out}
+    .button:hover,.nav-cta:hover{transform:translateY(-2px);box-shadow:0 20px 52px rgba(66,185,70,0.22)}
+    .menu-toggle{display:none;width:46px;height:46px;flex:0 0 46px;border:1px solid rgba(143,229,192,0.34);border-radius:999px;background:rgba(143,229,192,0.08);color:var(--green-2);cursor:pointer}
+    .menu-toggle span{display:block;width:18px;height:2px;margin:4px auto;border-radius:99px;background:currentColor;transition:transform 260ms ease-out,opacity 260ms ease-out}
+    .menu-open .menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-open .menu-toggle span:nth-child(2){opacity:0}
+    .menu-open .menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    /* LAYOUT */
+    .section{position:relative;padding:96px 0}
+    .eyebrow{margin:0 0 14px;color:var(--mint);font-family:var(--mono);font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+    .section-title{margin:0;font-family:var(--display);font-size:clamp(2rem,5vw,3.25rem);line-height:1;font-weight:700}
+    .section-lede{max-width:690px;margin:20px 0 0;color:var(--soft);font-size:1.08rem}
+    .page-hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+    .page-hero h1{margin:16px 0 18px;font-family:var(--display);font-size:clamp(2.5rem,5vw,4rem);line-height:1;font-weight:700}
+    .page-hero p{color:var(--soft);font-size:1.12rem;max-width:620px;margin:0}
+    .breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:0.75rem;color:var(--muted)}
+    .breadcrumb a{color:var(--mint)}
+    /* TIMELINE */
+    .timeline{position:relative;display:grid;gap:0;max-width:880px;margin:0 auto}
+    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--green));transform:translateX(-50%);border-radius:99px}
+    .timeline-item{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start;margin-bottom:0}
+    .timeline-item:nth-child(odd) .timeline-content{grid-column:1;padding-right:52px;text-align:right}
+    .timeline-item:nth-child(odd) .timeline-dot-wrap{grid-column:2;display:flex;justify-content:center;padding-top:20px}
+    .timeline-item:nth-child(odd) .timeline-spacer{grid-column:3}
+    .timeline-item:nth-child(even) .timeline-spacer{grid-column:1}
+    .timeline-item:nth-child(even) .timeline-dot-wrap{grid-column:2;display:flex;justify-content:center;padding-top:20px}
+    .timeline-item:nth-child(even) .timeline-content{grid-column:3;padding-left:52px}
+    .timeline-content{padding-bottom:56px}
+    .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green),0 0 0 4px rgba(66,185,70,0.15);flex-shrink:0;transition:transform 0.4s cubic-bezier(.34,1.56,.64,1)}
+    .timeline-dot:hover{transform:scale(1.4)}
+    .timeline-year{font-family:var(--mono);font-size:0.76rem;color:var(--mint);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+    .timeline-content h3{margin:0 0 8px;font-family:var(--display);font-size:1.3rem;font-weight:700}
+    .timeline-content p{margin:0;color:var(--soft);font-size:0.95rem;line-height:1.6}
+    /* PRINCIPLES */
+    .principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .principle-card{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:28px;border-left:3px solid transparent;transition:border-color 300ms ease-out,transform 300ms ease-out}
+    .principle-card:hover{border-color:rgba(143,229,192,0.4);transform:translateY(-4px)}
+    .principle-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--blue),var(--green));border-radius:10px;display:grid;place-items:center;margin-bottom:18px;font-size:1.4rem;transform:scale(0);transition:transform 0.5s cubic-bezier(.34,1.56,.64,1)}
+    .is-visible .principle-icon{transform:scale(1)}
+    .principle-card h3{margin:0 0 10px;font-family:var(--display);font-size:1.15rem;font-weight:700}
+    .principle-card p{margin:0;color:var(--soft);font-size:0.93rem;line-height:1.6}
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+    .team-card{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:28px;transition:transform 300ms ease-out,border-color 300ms ease-out}
+    .team-card:hover{transform:translateY(-5px);border-color:rgba(143,229,192,0.3)}
+    .team-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;font-family:var(--display);font-size:1.5rem;font-weight:700;margin-bottom:16px;color:white}
+    .team-card h3{margin:0 0 4px;font-family:var(--display);font-size:1.15rem;font-weight:700}
+    .team-card code{display:block;font-family:var(--mono);font-size:0.76rem;color:var(--mint);margin-bottom:12px}
+    .team-card p{margin:0;color:var(--soft);font-size:0.9rem;line-height:1.55}
+    /* FOOTER */
+    .site-footer{border-top:1px solid var(--line);padding:64px 0 0;background:rgba(5,14,10,0.7)}
+    .footer-grid{display:grid;grid-template-columns:minmax(220px,1.8fr) repeat(3,minmax(0,1fr));gap:48px}
+    .footer-brand p{margin:16px 0 0;color:var(--muted);font-size:0.93rem;line-height:1.55;max-width:300px}
+    .footer-column h3{margin:0 0 16px;font-family:var(--mono);font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mint)}
+    .footer-column ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .footer-column a{color:var(--soft);font-size:0.93rem;transition:color 260ms ease-out}
+    .footer-column a:hover{color:var(--green-2)}
+    .footer-bottom{display:flex;justify-content:space-between;gap:18px;margin-top:54px;padding-top:22px;border-top:1px solid rgba(244,251,247,0.12);color:var(--muted);font-size:0.92rem;padding-bottom:32px}
+    .footer-bottom a{color:var(--mint)}
+    .socials{display:flex;gap:14px;margin-top:22px}
+    .socials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--muted);transition:color 260ms ease-out,border-color 260ms ease-out}
+    .socials a:hover{color:var(--green-2);border-color:rgba(134,229,141,0.4)}
+    .socials svg{width:17px;height:17px;fill:currentColor}
+    /* REVEAL */
+    .reveal{opacity:1;transform:none;transition:opacity 560ms ease-out,transform 560ms ease-out}
+    .js-enabled .reveal{opacity:0;transform:translateY(26px)}
+    .js-enabled .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .reveal:nth-child(1){transition-delay:0ms}.reveal:nth-child(2){transition-delay:80ms}.reveal:nth-child(3){transition-delay:160ms}.reveal:nth-child(4){transition-delay:240ms}
+    /* MISSION INTRO */
+    .mission-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .mission-card{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:28px;margin-bottom:18px}
+    .mission-card:last-child{margin-bottom:0}
+    .mission-card h3{margin:0 0 10px;font-family:var(--display);font-size:1.15rem;font-weight:700}
+    .mission-card p{margin:0;color:var(--soft);font-size:0.95rem;line-height:1.6}
+    @media(max-width:1040px){.mission-intro{grid-template-columns:1fr}.principles-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){.container,.nav-wrap{width:calc(100% - 30px)}.menu-toggle{display:block;margin-left:auto}.nav-menu{position:absolute;left:15px;right:15px;top:84px;display:grid;gap:8px;padding:18px;border:1px solid var(--line);border-radius:8px;background:rgba(5,15,11,0.98);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms ease-out,visibility 260ms ease-out,transform 260ms ease-out}.menu-open .nav-menu{opacity:1;visibility:visible;transform:translateY(0)}.nav-menu a{min-height:44px;display:flex;align-items:center}.section{padding:64px 0}.timeline::before{left:20px}.timeline-item{grid-template-columns:40px 1fr}.timeline-item:nth-child(odd) .timeline-content,.timeline-item:nth-child(even) .timeline-content{grid-column:2;padding-left:20px;padding-right:0;text-align:left}.timeline-item:nth-child(odd) .timeline-dot-wrap,.timeline-item:nth-child(even) .timeline-dot-wrap{grid-column:1}.timeline-item:nth-child(odd) .timeline-spacer,.timeline-item:nth-child(even) .timeline-spacer{display:none}.principles-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.footer-grid{grid-template-columns:1fr}.footer-bottom{display:block}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}.js-enabled .reveal,.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Primary navigation">
+      <a class="brand" href="../index.html" aria-label="Data Safari home">
+        <img class="brand-logo" src="../datasafari-logo-primary.png" alt="Data Safari">
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="primary-menu">
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Stories</a></li>
+        <li><a href="contact.html">Partner</a></li>
+        <li><a class="nav-cta" href="contact.html">Start Learning &rarr;</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="about-title">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true"> › </span><span aria-current="page">About</span></nav>
+        <p class="eyebrow">Our story</p>
+        <h1 id="about-title">The WHY Gives You The HOW!</h1>
+        <p>We are a registered Tanzanian NGO on a mission to make data science and AI education accessible to every learner — from Morogoro's secondary schools to universities across the nation.</p>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="section" aria-labelledby="mission-about-title">
+      <div class="container">
+        <div class="mission-intro">
+          <div class="reveal">
+            <p class="eyebrow">Core identity</p>
+            <h2 class="section-title" id="mission-about-title">A Tanzanian NGO building practical data capability.</h2>
+            <p class="section-lede">Data Safari exists for learners who have ambition but need access, structure, mentors, tools, and a community that believes their questions matter.</p>
+            <a class="button" href="contact.html" style="margin-top:32px;display:inline-flex">Partner with Us &rarr;</a>
+          </div>
+          <div>
+            <article class="mission-card reveal">
+              <h3>Mission</h3>
+              <p>Our mission is to utilise the power of data to make informed decisions and solve community problems. We deliver this through structured, progressive education programmes rooted in Tanzanian contexts.</p>
+            </article>
+            <article class="mission-card reveal">
+              <h3>Vision</h3>
+              <p>A Tanzania where every student — regardless of location, gender, or socioeconomic background — can access world-class data science and AI education and apply it to the problems they care about.</p>
+            </article>
+            <article class="mission-card reveal">
+              <h3>Registered NGO</h3>
+              <p>Data Safari is a formally registered non-governmental organisation headquartered in Morogoro, Tanzania, operating with full transparency, community accountability, and an open-source ethos.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" aria-labelledby="history-title" style="background:linear-gradient(180deg,rgba(31,91,216,0.03),transparent)">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:64px">
+          <p class="eyebrow">Our journey</p>
+          <h2 class="section-title" id="history-title" style="margin:0 auto">From founding to 3,000+ students.</h2>
+        </div>
+        <div class="timeline" role="list" aria-label="Data Safari milestones">
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <h3>Data Safari Founded</h3>
+              <p>Data Safari is established as a registered NGO in Morogoro, Tanzania. HQ set up, founding team assembled, initial curriculum developed.</p>
+            </div>
+            <div class="timeline-dot-wrap"><div class="timeline-dot" aria-hidden="true"></div></div>
+            <div class="timeline-spacer"></div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-spacer"></div>
+            <div class="timeline-dot-wrap"><div class="timeline-dot" style="background:var(--blue-2);box-shadow:0 0 18px var(--blue-2),0 0 0 4px rgba(74,140,255,0.15)" aria-hidden="true"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <h3>First Data Wizards Cohort</h3>
+              <p>120 secondary school students complete the inaugural 12-week Data Wizards programme. Community data projects presented to local government leaders in Morogoro.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <h3>AI Wizards University Clubs</h3>
+              <p>AI Wizards clubs launched at 3 universities across Tanzania. 60 students in the first cohort build no-code AI models using Orange Data Mining and Teachable Machine.</p>
+            </div>
+            <div class="timeline-dot-wrap"><div class="timeline-dot" style="background:var(--mint);box-shadow:0 0 18px var(--mint),0 0 0 4px rgba(143,229,192,0.15)" aria-hidden="true"></div></div>
+            <div class="timeline-spacer"></div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-spacer"></div>
+            <div class="timeline-dot-wrap"><div class="timeline-dot" style="background:var(--green-2);box-shadow:0 0 18px var(--green-2),0 0 0 4px rgba(134,229,141,0.15)" aria-hidden="true"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2025</div>
+              <h3>First AI Bootcamp</h3>
+              <p>The inaugural 3-day AI Bootcamp produces 200 graduates who deploy working machine learning models. Partnerships expand to 4 universities. Curriculum open-sourced on GitHub.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-content">
+              <div class="timeline-year">2026</div>
+              <h3>3,000+ Students Reached</h3>
+              <p>Data Safari now active in 5 regions across Tanzania mainland. 3,000+ students reached across all three programmes. New cohorts forming — join the movement.</p>
+            </div>
+            <div class="timeline-dot-wrap"><div class="timeline-dot" style="background:var(--cream);box-shadow:0 0 18px rgba(245,237,214,0.5),0 0 0 4px rgba(245,237,214,0.15)" aria-hidden="true"></div></div>
+            <div class="timeline-spacer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section" aria-labelledby="values-title" style="padding-top:0">
+      <div class="container">
+        <div style="margin-bottom:48px">
+          <p class="eyebrow">What we believe</p>
+          <h2 class="section-title" id="values-title">Principles that guide every decision.</h2>
+        </div>
+        <div class="principles-grid">
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">🌍</div>
+            <h3>Access for All</h3>
+            <p>Quality data education should not be limited by geography, income, or gender. We design for the margins first and work outward.</p>
+          </article>
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">🔬</div>
+            <h3>Real Data, Real Problems</h3>
+            <p>Every exercise uses Tanzanian data about Tanzanian realities. Students work on problems they actually care about solving.</p>
+          </article>
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">🤝</div>
+            <h3>Community-First</h3>
+            <p>Insights belong to the communities they describe. We train students to share findings, not hoard them, and to listen as much as they measure.</p>
+          </article>
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">📖</div>
+            <h3>Open Source</h3>
+            <p>All curricula, datasets, and tools are open-source and freely available. We build on the shoulders of the global open-source community and give back to it.</p>
+          </article>
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">⚖️</div>
+            <h3>Ethical AI</h3>
+            <p>Every programme includes dedicated modules on AI ethics, bias, fairness, and responsible data use — because the WHY always comes before the HOW.</p>
+          </article>
+          <article class="principle-card reveal">
+            <div class="principle-icon" aria-hidden="true">🚀</div>
+            <h3>Progressive Mastery</h3>
+            <p>Our three-tier ladder meets every learner where they are — from first spreadsheet to deployed model — with a clear, achievable path forward.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" aria-labelledby="team-title" style="padding-top:0;padding-bottom:96px">
+      <div class="container">
+        <div style="margin-bottom:48px">
+          <p class="eyebrow">The people</p>
+          <h2 class="section-title" id="team-title">Built by educators, data scientists, and community leaders.</h2>
+        </div>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-avatar" aria-hidden="true">DF</div>
+            <h3>Dr. Fatuma Mwangi</h3>
+            <code>Executive Director</code>
+            <p>Data scientist and educator with 14 years of experience in East Africa. Former lecturer at University of Dar es Salaam. Champion of women in STEM.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-avatar" style="background:linear-gradient(135deg,var(--blue-2),var(--mint))" aria-hidden="true">KM</div>
+            <h3>Kelvin Msangi</h3>
+            <code>Head of Curriculum</code>
+            <p>Machine learning engineer and former Google Developer Expert. Architect of the Data Wizards and AI Wizards programmes. Passionate Swahili open-data advocate.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-avatar" style="background:linear-gradient(135deg,var(--green),var(--mint))" aria-hidden="true">AA</div>
+            <h3>Amina Abdallah</h3>
+            <code>Director of Partnerships</code>
+            <p>10 years of NGO development in Tanzania and Kenya. Builds and maintains relationships with schools, universities, government bodies, and international funders.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-avatar" style="background:linear-gradient(135deg,var(--clay),var(--cream))" aria-hidden="true">JN</div>
+            <h3>Joseph Ngowi</h3>
+            <code>Lead Instructor — Bootcamp</code>
+            <p>Software engineer and data educator. Leads the intensive AI Bootcamp programme and mentors advanced students from foundations to deployment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Data Safari home">
+            <img class="brand-logo" src="../datasafari-logo-primary.png" alt="Data Safari">
+          </a>
+          <p>Data Safari is a registered NGO making Data Science and AI education accessible to every one.</p>
+          <div class="socials" aria-label="Social links">
+            <a href="https://x.com/datasafariio" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2.2h3.3l-7.2 8.2 8.5 11.4h-6.7l-5.2-6.9-6 6.9H1.6l7.7-8.8L1.2 2.2H8l4.7 6.3 5.5-6.3Zm-1.2 17.6h1.8L7 4.1H5.1l11.9 15.7Z"/></svg></a>
+            <a href="https://www.linkedin.com/company/datasafariio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.2 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V22h-4.2v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V22H7.6V8Z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column"><h3>Programs</h3><ul><li><a href="programs.html">Data Wizards</a></li><li><a href="programs.html#ai-wizards">AI Wizards</a></li><li><a href="programs.html#ai-bootcamp">AI Bootcamp</a></li></ul></div>
+        <div class="footer-column"><h3>Organisation</h3><ul><li><a href="impact.html">Impact</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Stories</a></li></ul></div>
+        <div class="footer-column"><h3>Connect</h3><ul><li><a href="contact.html">Partner with us</a></li><li><a href="https://x.com/datasafariio" target="_blank" rel="noopener noreferrer">@datasafariio</a></li><li><a href="https://www.datasafari.io" target="_blank" rel="noopener noreferrer">www.datasafari.io</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Data Safari &middot; Registered NGO &middot; The WHY Gives You The HOW! &middot; Open Source &#9829;</span>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body=document.body,header=document.querySelector(".site-header"),menuToggle=document.querySelector(".menu-toggle");
+    window.addEventListener("scroll",()=>header.classList.toggle("scrolled",window.scrollY>60),{passive:true});
+    header.classList.toggle("scrolled",window.scrollY>60);
+    menuToggle.addEventListener("click",()=>{const o=body.classList.toggle("menu-open");menuToggle.setAttribute("aria-expanded",String(o));menuToggle.setAttribute("aria-label",o?"Close navigation":"Open navigation")});
+    document.querySelectorAll(".nav-menu a").forEach(l=>l.addEventListener("click",()=>{body.classList.remove("menu-open");menuToggle.setAttribute("aria-expanded","false")}));
+    const cp=location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-menu a').forEach(a=>{if(a.getAttribute('href')&&a.getAttribute('href').includes(cp))a.classList.add('nav-active')});
+    if("IntersectionObserver" in window){
+      const ro=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");ro.unobserve(e.target)}}),{threshold:0.14});
+      document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el=>el.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

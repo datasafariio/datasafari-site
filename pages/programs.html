@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Data Safari programs: Data Wizards for secondary schools, AI Wizards for universities, and AI Bootcamp — Tanzania's data science education ladder.">
+  <title>Programs | Data Safari</title>
+  <script>document.documentElement.classList.add("js-enabled");</script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap');
+    :root {
+      --night:#07120f;--night-2:#0b1b15;--panel:rgba(245,250,247,0.055);
+      --panel-strong:rgba(245,250,247,0.09);--line:rgba(219,240,233,0.14);
+      --text:#f4fbf7;--soft:rgba(244,251,247,0.76);--muted:rgba(244,251,247,0.56);
+      --blue:#1f5bd8;--blue-2:#4a8cff;--green:#42b946;--green-2:#86e58d;
+      --mint:#8fe5c0;--cream:#f5edd6;--clay:#c5694a;
+      --shadow:0 24px 72px rgba(0,0,0,0.34);
+      --display:"Playfair Display",Georgia,serif;
+      --sans:"DM Sans","IBM Plex Sans",Arial,sans-serif;
+      --mono:"JetBrains Mono",Consolas,monospace;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;min-height:100%;overflow-x:hidden;
+      background:radial-gradient(circle at 16% 18%,rgba(31,91,216,0.22),transparent 34%),
+      radial-gradient(circle at 86% 10%,rgba(66,185,70,0.18),transparent 31%),
+      linear-gradient(180deg,#081711 0%,var(--night) 64%,#06100c 100%);
+      color:var(--text);font-family:var(--sans);line-height:1.6}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+      background-image:radial-gradient(rgba(143,229,192,0.13) 1px,transparent 1px),
+      linear-gradient(120deg,rgba(31,91,216,0.07),transparent 45%,rgba(66,185,70,0.08));
+      background-size:34px 34px,100% 100%;mask-image:linear-gradient(180deg,black 0%,transparent 86%)}
+    a{color:inherit;text-decoration:none}img,svg{display:block;max-width:100%}
+    button,input{font:inherit}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;
+      background:rgba(7,18,15,0.66);backdrop-filter:blur(16px);
+      transition:background 320ms ease-out,border-color 320ms ease-out,box-shadow 320ms ease-out}
+    .site-header.scrolled{background:rgba(7,18,15,0.96);border-color:var(--line);box-shadow:0 18px 42px rgba(0,0,0,0.26)}
+    .container,.nav-wrap{width:calc(100% - 40px);max-width:1180px;margin:0 auto}
+    .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:inline-flex;align-items:center;min-width:0}
+    .brand-logo{width:184px;height:auto;filter:drop-shadow(0 10px 22px rgba(31,91,216,0.22))}
+    .nav-menu{display:flex;align-items:center;gap:27px;margin:0;padding:0;list-style:none}
+    .nav-menu a:not(.nav-cta){color:var(--soft);font-size:0.95rem;font-weight:700;transition:color 260ms ease-out}
+    .nav-menu a:not(.nav-cta):hover,.nav-menu a:not(.nav-cta):focus-visible{color:var(--green-2)}
+    .nav-menu a.nav-active{color:var(--green-2)}
+    .nav-menu a.nav-active::after{content:"";display:block;height:2px;background:var(--green-2);border-radius:99px;margin-top:2px}
+    .button,.nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 20px;
+      border:1px solid rgba(143,229,192,0.42);border-radius:999px;background:linear-gradient(135deg,var(--blue),var(--green));
+      color:white;font-weight:800;box-shadow:0 16px 42px rgba(31,91,216,0.24);
+      transition:transform 300ms ease-out,box-shadow 300ms ease-out,border-color 300ms ease-out}
+    .button:hover,.button:focus-visible,.nav-cta:hover,.nav-cta:focus-visible{transform:translateY(-2px);border-color:rgba(134,229,141,0.72);box-shadow:0 20px 52px rgba(66,185,70,0.22)}
+    .menu-toggle{display:none;width:46px;height:46px;flex:0 0 46px;border:1px solid rgba(143,229,192,0.34);border-radius:999px;background:rgba(143,229,192,0.08);color:var(--green-2);cursor:pointer}
+    .menu-toggle span{display:block;width:18px;height:2px;margin:4px auto;border-radius:99px;background:currentColor;transition:transform 260ms ease-out,opacity 260ms ease-out}
+    .menu-open .menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-open .menu-toggle span:nth-child(2){opacity:0}
+    .menu-open .menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    /* LAYOUT */
+    .section{position:relative;padding:104px 0}
+    .eyebrow{margin:0 0 14px;color:var(--mint);font-family:var(--mono);font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+    .section-title{margin:0;max-width:780px;font-family:var(--display);font-size:clamp(2rem,5vw,3.25rem);line-height:1;font-weight:700}
+    .section-lede{max-width:690px;margin:20px 0 0;color:var(--soft);font-size:1.08rem}
+    .chip{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;min-height:32px;padding:0 11px;border:1px solid rgba(143,229,192,0.24);border-radius:999px;background:rgba(143,229,192,0.07);color:var(--mint);font-family:var(--mono);font-size:0.75rem;font-weight:700}
+    .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 16px currentColor}
+
+    /* PAGE HERO */
+    .page-hero{padding:80px 0 72px;border-bottom:1px solid var(--line)}
+    .page-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .page-hero h1{margin:0 0 20px;font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);line-height:1;font-weight:700}
+    .page-hero p{color:var(--soft);font-size:1.12rem;line-height:1.6;margin:0}
+    .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:22px;font-family:var(--mono);font-size:0.75rem;color:var(--muted)}
+    .breadcrumb a{color:var(--mint)}
+    .breadcrumb span{color:var(--muted)}
+
+    /* PROGRAM CHAPTERS */
+    .program-chapter{padding:96px 0;border-bottom:1px solid var(--line)}
+    .program-chapter:last-of-type{border-bottom:none}
+    .program-chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .program-chapter-grid.reverse{direction:rtl}
+    .program-chapter-grid.reverse > *{direction:ltr}
+    .program-content h2{margin:16px 0 20px;font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.05;font-weight:700}
+    .program-content p{color:var(--soft);font-size:1.05rem;line-height:1.65;margin:0 0 28px}
+    .module-list{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:10px}
+    .module-list li{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:0.95rem;color:var(--soft)}
+    .module-list li::before{content:"✓";flex:0 0 auto;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));color:white;font-size:0.72rem;font-weight:800;margin-top:1px}
+    .module-list strong{display:block;color:var(--text);margin-bottom:3px}
+
+    /* VISUAL PANELS */
+    .viz-panel{border:1px solid var(--line);border-radius:8px;background:var(--night-2);padding:24px;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:center}
+    .viz-panel figcaption{margin-top:16px;font-family:var(--mono);font-size:0.73rem;color:var(--muted);text-align:center}
+    .viz-title{font-family:var(--mono);font-size:0.73rem;color:var(--mint);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+
+    /* Chart animations */
+    .chart-line{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 2s cubic-bezier(.22,1,.36,1)}
+    .chart-line.is-animated{stroke-dashoffset:0}
+    .chart-area{opacity:0;transition:opacity 1.2s ease-out}
+    .chart-area.is-animated{opacity:1}
+
+    /* Scatter circles */
+    .scatter-dot{r:0;transition:r 0.5s cubic-bezier(.34,1.56,.64,1)}
+    .scatter-dot.is-animated{r:var(--r)}
+
+    /* Gantt bars */
+    .gantt-bar{transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.22,1,.36,1)}
+    .gantt-bar.is-animated{transform:scaleX(1)}
+
+    /* DATA LABELS */
+    .axis-label{font-family:var(--mono);font-size:11px;fill:rgba(244,251,247,0.5)}
+
+    /* FOOTER */
+    .site-footer{border-top:1px solid var(--line);padding:64px 0 0;background:rgba(5,14,10,0.7)}
+    .footer-grid{display:grid;grid-template-columns:minmax(220px,1.8fr) repeat(3,minmax(0,1fr));gap:48px}
+    .footer-brand p{margin:16px 0 0;color:var(--muted);font-size:0.93rem;line-height:1.55;max-width:300px}
+    .footer-column h3{margin:0 0 16px;font-family:var(--mono);font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mint)}
+    .footer-column ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .footer-column a{color:var(--soft);font-size:0.93rem;transition:color 260ms ease-out}
+    .footer-column a:hover{color:var(--green-2)}
+    .footer-bottom{display:flex;justify-content:space-between;gap:18px;margin-top:54px;padding-top:22px;border-top:1px solid rgba(244,251,247,0.12);color:var(--muted);font-size:0.92rem;padding-bottom:32px}
+    .footer-bottom a{color:var(--mint)}
+    .socials{display:flex;gap:14px;margin-top:22px}
+    .socials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--muted);transition:color 260ms ease-out,border-color 260ms ease-out}
+    .socials a:hover{color:var(--green-2);border-color:rgba(134,229,141,0.4)}
+    .socials svg{width:17px;height:17px;fill:currentColor}
+
+    /* REVEAL */
+    .reveal{opacity:1;transform:none;transition:opacity 560ms ease-out,transform 560ms ease-out}
+    .js-enabled .reveal{opacity:0;transform:translateY(26px)}
+    .js-enabled .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .reveal:nth-child(1){transition-delay:0ms}
+    .reveal:nth-child(2){transition-delay:80ms}
+    .reveal:nth-child(3){transition-delay:160ms}
+    .reveal:nth-child(4){transition-delay:240ms}
+
+    @media(max-width:1040px){
+      .page-hero-inner,.program-chapter-grid,.program-chapter-grid.reverse{grid-template-columns:1fr}
+      .program-chapter-grid.reverse{direction:ltr}
+    }
+    @media(max-width:768px){
+      .container,.nav-wrap{width:calc(100% - 30px)}
+      .menu-toggle{display:block;margin-left:auto}
+      .nav-menu{position:absolute;left:15px;right:15px;top:84px;display:grid;gap:8px;padding:18px;border:1px solid var(--line);border-radius:8px;background:rgba(5,15,11,0.98);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms ease-out,visibility 260ms ease-out,transform 260ms ease-out}
+      .menu-open .nav-menu{opacity:1;visibility:visible;transform:translateY(0)}
+      .nav-menu a{min-height:44px;display:flex;align-items:center}
+      .section{padding:72px 0}
+      .program-chapter{padding:64px 0}
+      .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:520px){
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{display:block}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}
+      .js-enabled .reveal,.reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Primary navigation">
+      <a class="brand" href="../index.html" aria-label="Data Safari home">
+        <img class="brand-logo" src="../datasafari-logo-primary.png" alt="Data Safari">
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="primary-menu">
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Stories</a></li>
+        <li><a href="contact.html">Partner</a></li>
+        <li><a class="nav-cta" href="contact.html">Start Learning &rarr;</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="programs-title">
+      <div class="container">
+        <div class="page-hero-inner">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../index.html">Home</a>
+              <span aria-hidden="true">›</span>
+              <span aria-current="page">Programs</span>
+            </nav>
+            <p class="eyebrow">Education ladder</p>
+            <h1 id="programs-title">Three pathways. One mission.</h1>
+            <p>From first encounter with data to deploying real AI — our three programs form a progressive ladder for every learner in Tanzania.</p>
+          </div>
+          <figure class="viz-panel reveal" aria-label="Programs ladder overview">
+            <p class="viz-title">Learning progression</p>
+            <svg viewBox="0 0 400 260" width="100%" aria-hidden="true">
+              <defs>
+                <linearGradient id="ladderGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#1f5bd8"/>
+                  <stop offset="100%" stop-color="#42b946"/>
+                </linearGradient>
+              </defs>
+              <!-- Step 1 -->
+              <rect x="20" y="180" width="110" height="60" rx="6" fill="rgba(66,185,70,0.18)" stroke="#42b946" stroke-width="1.5"/>
+              <text x="75" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#86e58d" font-weight="700">DATA WIZARDS</text>
+              <text x="75" y="221" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">Ages 14–18</text>
+              <text x="75" y="234" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">Secondary Schools</text>
+              <!-- Step 2 -->
+              <rect x="150" y="110" width="110" height="60" rx="6" fill="rgba(74,140,255,0.18)" stroke="#4a8cff" stroke-width="1.5"/>
+              <text x="205" y="135" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#4a8cff" font-weight="700">AI WIZARDS</text>
+              <text x="205" y="151" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">University Level</text>
+              <text x="205" y="164" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">Club Format</text>
+              <!-- Step 3 -->
+              <rect x="275" y="40" width="110" height="60" rx="6" fill="rgba(143,229,192,0.15)" stroke="#8fe5c0" stroke-width="1.5"/>
+              <text x="330" y="65" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8fe5c0" font-weight="700">AI BOOTCAMP</text>
+              <text x="330" y="81" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">Advanced Concepts</text>
+              <text x="330" y="94" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.6)">Open Enrolment</text>
+              <!-- Arrows -->
+              <path d="M130 210 L150 140" stroke="url(#ladderGrad)" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrow)"/>
+              <path d="M260 140 L275 70" stroke="url(#ladderGrad)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#86e58d"/>
+                </marker>
+              </defs>
+            </svg>
+            <figcaption>Data Safari's three-tier education ladder</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM 1: DATA WIZARDS -->
+    <section class="program-chapter" id="data-wizards" aria-labelledby="dw-title">
+      <div class="container">
+        <div class="program-chapter-grid">
+          <div class="program-content reveal">
+            <p class="eyebrow">Ages 14–18 · Secondary Schools</p>
+            <h2 id="dw-title">Data Wizards</h2>
+            <p>Data Wizards is our flagship secondary school programme. Students go from zero to data-fluent in 12 weeks — learning to collect, clean, analyse, and present real data from their own communities.</p>
+            <ul class="module-list" aria-label="Data Wizards curriculum modules">
+              <li><div><strong>Module 1 — What is Data?</strong>Types of data, sources in everyday life, why data matters for Tanzania.</div></li>
+              <li><div><strong>Module 2 — Data Collection</strong>Survey design, observation protocols, ethical data gathering.</div></li>
+              <li><div><strong>Module 3 — Spreadsheet Fundamentals</strong>Google Sheets / Excel — cleaning, sorting, filtering, pivot tables.</div></li>
+              <li><div><strong>Module 4 — Visualisation</strong>Charts, graphs, storytelling with data for real audiences.</div></li>
+              <li><div><strong>Module 5 — Introduction to Statistics</strong>Mean, median, mode, correlation — no advanced maths required.</div></li>
+              <li><div><strong>Module 6 — Community Data Project</strong>Teams investigate a local problem using real data, present findings.</div></li>
+            </ul>
+            <a class="button" href="contact.html">Bring to My School &rarr;</a>
+          </div>
+          <figure class="viz-panel reveal" aria-label="Student progress over 12-week Data Wizards cohort">
+            <p class="viz-title">Student progress — 12-week cohort</p>
+            <svg id="lineChart" viewBox="0 0 380 240" width="100%" aria-hidden="true">
+              <defs>
+                <linearGradient id="skillGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#42b946" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#42b946" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Grid -->
+              <line x1="50" y1="20" x2="50" y2="195" stroke="rgba(219,240,233,0.14)" stroke-width="1"/>
+              <line x1="50" y1="195" x2="370" y2="195" stroke="rgba(219,240,233,0.14)" stroke-width="1"/>
+              <line x1="50" y1="145" x2="370" y2="145" stroke="rgba(219,240,233,0.07)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="50" y1="95" x2="370" y2="95" stroke="rgba(219,240,233,0.07)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="50" y1="45" x2="370" y2="45" stroke="rgba(219,240,233,0.07)" stroke-width="1" stroke-dasharray="4 4"/>
+              <!-- Y axis labels -->
+              <text x="44" y="199" text-anchor="end" class="axis-label">0%</text>
+              <text x="44" y="149" text-anchor="end" class="axis-label">25%</text>
+              <text x="44" y="99" text-anchor="end" class="axis-label">50%</text>
+              <text x="44" y="49" text-anchor="end" class="axis-label">75%</text>
+              <!-- X axis labels -->
+              <text x="50" y="210" text-anchor="middle" class="axis-label">Wk1</text>
+              <text x="107" y="210" text-anchor="middle" class="axis-label">Wk3</text>
+              <text x="164" y="210" text-anchor="middle" class="axis-label">Wk5</text>
+              <text x="221" y="210" text-anchor="middle" class="axis-label">Wk7</text>
+              <text x="278" y="210" text-anchor="middle" class="axis-label">Wk9</text>
+              <text x="335" y="210" text-anchor="middle" class="axis-label">Wk11</text>
+              <text x="365" y="210" text-anchor="middle" class="axis-label">12</text>
+              <!-- Skills line (green) -->
+              <path class="chart-area" d="M50,185 L107,175 L164,158 L221,132 L278,101 L335,68 L365,48 L365,195 L50,195 Z" fill="url(#skillGrad)"/>
+              <polyline class="chart-line" id="skillLine" points="50,185 107,175 164,158 221,132 278,101 335,68 365,48" fill="none" stroke="#42b946" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Confidence line (blue) -->
+              <polyline class="chart-line" id="confLine" points="50,190 107,183 164,170 221,150 278,125 335,96 365,72" fill="none" stroke="#4a8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1200" stroke-dashoffset="1200"/>
+              <!-- Data points -->
+              <circle cx="365" cy="48" r="5" fill="#86e58d" filter="url(#glow)"/>
+              <circle cx="365" cy="72" r="4" fill="#4a8cff"/>
+              <defs>
+                <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <!-- Legend -->
+              <line x1="55" y1="228" x2="75" y2="228" stroke="#42b946" stroke-width="2.5"/>
+              <text x="79" y="231" class="axis-label" fill="rgba(244,251,247,0.7)">Skills score</text>
+              <line x1="165" y1="228" x2="185" y2="228" stroke="#4a8cff" stroke-width="2"/>
+              <text x="189" y="231" class="axis-label" fill="rgba(244,251,247,0.7)">Confidence</text>
+            </svg>
+            <figcaption>Average skills and confidence scores across cohort weeks 1–12</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM 2: AI WIZARDS -->
+    <section class="program-chapter" id="ai-wizards" aria-labelledby="aw-title" style="background:linear-gradient(180deg,rgba(31,91,216,0.04),transparent)">
+      <div class="container">
+        <div class="program-chapter-grid reverse">
+          <div class="program-content reveal">
+            <p class="eyebrow">University Level · Club Format</p>
+            <h2 id="aw-title">AI Wizards</h2>
+            <p>AI Wizards brings no-code and low-code AI tools to university students through a vibrant club format. Using Orange Data Mining and Google Teachable Machine, students build and deploy real models without deep programming experience.</p>
+            <ul class="module-list" aria-label="AI Wizards curriculum modules">
+              <li><div><strong>Track 1 — AI Literacy</strong>What is AI, ML, and deep learning? Use cases in Africa and globally.</div></li>
+              <li><div><strong>Track 2 — Orange Data Mining</strong>Visual data workflows, classification, clustering — no code required.</div></li>
+              <li><div><strong>Track 3 — Teachable Machine</strong>Train image and sound classifiers using Google's Teachable Machine platform.</div></li>
+              <li><div><strong>Track 4 — Ethics &amp; Bias</strong>Fairness in AI, bias in training data, responsible deployment in Tanzania.</div></li>
+              <li><div><strong>Capstone — Club Projects</strong>Teams build and present AI solutions addressing real university or community problems.</div></li>
+            </ul>
+            <a class="button" href="contact.html">Start a Club &rarr;</a>
+          </div>
+          <figure class="viz-panel reveal" aria-label="AI Wizards project scatter plot: impact vs complexity">
+            <p class="viz-title">Club projects — impact vs complexity</p>
+            <svg id="scatterChart" viewBox="0 0 380 260" width="100%" aria-hidden="true">
+              <!-- Axes -->
+              <line x1="50" y1="20" x2="50" y2="215" stroke="rgba(219,240,233,0.22)" stroke-width="1.5"/>
+              <line x1="50" y1="215" x2="370" y2="215" stroke="rgba(219,240,233,0.22)" stroke-width="1.5"/>
+              <text x="210" y="235" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(244,251,247,0.5)">Complexity →</text>
+              <text x="12" y="120" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(244,251,247,0.5)" transform="rotate(-90 12 120)">↑ Impact</text>
+              <!-- Grid -->
+              <line x1="50" y1="140" x2="370" y2="140" stroke="rgba(219,240,233,0.07)" stroke-dasharray="4 4"/>
+              <line x1="210" y1="20" x2="210" y2="215" stroke="rgba(219,240,233,0.07)" stroke-dasharray="4 4"/>
+              <!-- Scatter dots (staggered) -->
+              <circle class="scatter-dot" style="--r:8" cx="82" cy="52" fill="#86e58d" opacity="0.85"><title>Crop disease detector</title></circle>
+              <circle class="scatter-dot" style="--r:7" cx="110" cy="88" fill="#4a8cff" opacity="0.85"><title>Student attendance AI</title></circle>
+              <circle class="scatter-dot" style="--r:9" cx="145" cy="64" fill="#8fe5c0" opacity="0.85"><title>Water quality classifier</title></circle>
+              <circle class="scatter-dot" style="--r:6" cx="98" cy="148" fill="#86e58d" opacity="0.7"><title>Market price predictor</title></circle>
+              <circle class="scatter-dot" style="--r:8" cx="175" cy="95" fill="#4a8cff" opacity="0.85"><title>Malaria image detector</title></circle>
+              <circle class="scatter-dot" style="--r:7" cx="220" cy="72" fill="#8fe5c0" opacity="0.85"><title>Sign language recogniser</title></circle>
+              <circle class="scatter-dot" style="--r:10" cx="248" cy="45" fill="#86e58d" opacity="0.9"><title>Soil type classifier</title></circle>
+              <circle class="scatter-dot" style="--r:6" cx="190" cy="155" fill="#4a8cff" opacity="0.7"><title>News category sorter</title></circle>
+              <circle class="scatter-dot" style="--r:8" cx="285" cy="82" fill="#8fe5c0" opacity="0.85"><title>Wildlife camera trap AI</title></circle>
+              <circle class="scatter-dot" style="--r:7" cx="310" cy="58" fill="#86e58d" opacity="0.85"><title>Cashew disease detector</title></circle>
+              <circle class="scatter-dot" style="--r:9" cx="335" cy="40" fill="#4a8cff" opacity="0.9"><title>Swahili sentiment model</title></circle>
+              <circle class="scatter-dot" style="--r:6" cx="260" cy="140" fill="#8fe5c0" opacity="0.7"><title>Student feedback sorter</title></circle>
+              <circle class="scatter-dot" style="--r:7" cx="130" cy="178" fill="#86e58d" opacity="0.6"><title>Survey response tagger</title></circle>
+              <circle class="scatter-dot" style="--r:8" cx="345" cy="108" fill="#4a8cff" opacity="0.8"><title>Waste sorting model</title></circle>
+              <circle class="scatter-dot" style="--r:5" cx="70" cy="195" fill="#8fe5c0" opacity="0.5"><title>Simple form sorter</title></circle>
+              <!-- Legend -->
+              <circle cx="58" cy="248" r="5" fill="#86e58d"/>
+              <text x="67" y="251" class="axis-label" fill="rgba(244,251,247,0.7)">Health</text>
+              <circle cx="112" cy="248" r="5" fill="#4a8cff"/>
+              <text x="121" y="251" class="axis-label" fill="rgba(244,251,247,0.7)">Agriculture</text>
+              <circle cx="188" cy="248" r="5" fill="#8fe5c0"/>
+              <text x="197" y="251" class="axis-label" fill="rgba(244,251,247,0.7)">Education</text>
+            </svg>
+            <figcaption>60+ capstone projects plotted by impact and technical complexity</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM 3: AI BOOTCAMP -->
+    <section class="program-chapter" id="ai-bootcamp" aria-labelledby="ab-title">
+      <div class="container">
+        <div class="program-chapter-grid">
+          <div class="program-content reveal">
+            <p class="eyebrow">3-Day Intensive · Open Enrolment</p>
+            <h2 id="ab-title">AI Bootcamp</h2>
+            <p>The AI Bootcamp is Data Safari's most intensive offering — a three-day sprint that takes participants from raw data to a deployed AI model. Open to university graduates, professionals, and advanced secondary students.</p>
+            <ul class="module-list" aria-label="AI Bootcamp daily schedule">
+              <li><div><strong>Day 1 — Foundations</strong>Python essentials, Pandas, data wrangling, exploratory analysis, and feature engineering on a real Tanzania dataset.</div></li>
+              <li><div><strong>Day 2 — Build</strong>Scikit-learn, model selection, training, evaluation, cross-validation, and hyperparameter tuning.</div></li>
+              <li><div><strong>Day 3 — Deploy</strong>Streamlit / Gradio deployment, model cards, ethics documentation, and live demo presentations to judges.</div></li>
+            </ul>
+            <a class="button" href="contact.html">Apply for Bootcamp &rarr;</a>
+          </div>
+          <figure class="viz-panel reveal" aria-label="AI Bootcamp three-day Gantt timeline">
+            <p class="viz-title">Bootcamp schedule — 3-day overview</p>
+            <svg id="ganttChart" viewBox="0 0 380 220" width="100%" aria-hidden="true">
+              <defs>
+                <linearGradient id="barGrad1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#1f5bd8"/>
+                  <stop offset="100%" stop-color="#4a8cff"/>
+                </linearGradient>
+                <linearGradient id="barGrad2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#4a8cff"/>
+                  <stop offset="100%" stop-color="#42b946"/>
+                </linearGradient>
+                <linearGradient id="barGrad3" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#42b946"/>
+                  <stop offset="100%" stop-color="#86e58d"/>
+                </linearGradient>
+              </defs>
+              <!-- Row labels -->
+              <text x="5" y="64" font-family="JetBrains Mono,monospace" font-size="10" fill="#8fe5c0" font-weight="700">DAY 1</text>
+              <text x="5" y="65" dy="12" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.5)">Foundations</text>
+              <text x="5" y="114" font-family="JetBrains Mono,monospace" font-size="10" fill="#4a8cff" font-weight="700">DAY 2</text>
+              <text x="5" y="115" dy="12" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.5)">Build</text>
+              <text x="5" y="164" font-family="JetBrains Mono,monospace" font-size="10" fill="#86e58d" font-weight="700">DAY 3</text>
+              <text x="5" y="165" dy="12" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(244,251,247,0.5)">Deploy</text>
+              <!-- Tracks background -->
+              <rect x="80" y="44" width="290" height="28" rx="4" fill="rgba(31,91,216,0.08)"/>
+              <rect x="80" y="94" width="290" height="28" rx="4" fill="rgba(74,140,255,0.08)"/>
+              <rect x="80" y="144" width="290" height="28" rx="4" fill="rgba(66,185,70,0.08)"/>
+              <!-- Gantt bars -->
+              <rect class="gantt-bar" id="gb1" x="80" y="44" width="290" height="28" rx="4" fill="url(#barGrad1)"/>
+              <rect class="gantt-bar" id="gb2" x="80" y="94" width="290" height="28" rx="4" fill="url(#barGrad2)" style="transition-delay:0.25s"/>
+              <rect class="gantt-bar" id="gb3" x="80" y="144" width="290" height="28" rx="4" fill="url(#barGrad3)" style="transition-delay:0.5s"/>
+              <!-- Bar labels -->
+              <text x="225" y="63" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="white" font-weight="700">Python · Pandas · EDA · Features</text>
+              <text x="225" y="113" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="white" font-weight="700">Scikit-learn · Training · Evaluation</text>
+              <text x="225" y="163" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="white" font-weight="700">Streamlit · Deploy · Demo Day</text>
+              <!-- Milestones diamonds -->
+              <rect x="146" y="35" width="10" height="10" rx="1" fill="#f5edd6" transform="rotate(45 151 40)"/>
+              <rect x="146" y="185" width="10" height="10" rx="1" fill="#86e58d" transform="rotate(45 151 190)"/>
+              <!-- Timeline axis -->
+              <line x1="80" y1="185" x2="370" y2="185" stroke="rgba(219,240,233,0.22)" stroke-width="1"/>
+              <text x="80" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(244,251,247,0.4)">08:00</text>
+              <text x="177" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(244,251,247,0.4)">Day 2</text>
+              <text x="275" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(244,251,247,0.4)">Day 3</text>
+              <text x="370" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(244,251,247,0.4)">17:00</text>
+            </svg>
+            <figcaption>Three-day intensive from foundations to deployment</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Data Safari home">
+            <img class="brand-logo" src="../datasafari-logo-primary.png" alt="Data Safari">
+          </a>
+          <p>Data Safari is a registered NGO making Data Science and AI education accessible to every one.</p>
+          <div class="socials" aria-label="Social links">
+            <a href="https://x.com/datasafariio" target="_blank" rel="noopener noreferrer" aria-label="X @datasafariio"><svg viewBox="0 0 24 24"><path d="M18.2 2.2h3.3l-7.2 8.2 8.5 11.4h-6.7l-5.2-6.9-6 6.9H1.6l7.7-8.8L1.2 2.2H8l4.7 6.3 5.5-6.3Zm-1.2 17.6h1.8L7 4.1H5.1l11.9 15.7Z"/></svg></a>
+            <a href="https://www.linkedin.com/company/datasafariio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.2 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V22h-4.2v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V22H7.6V8Z"/></svg></a>
+            <a href="https://github.com/datasafariio" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2.1c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Programs</h3>
+          <ul>
+            <li><a href="#data-wizards">Data Wizards</a></li>
+            <li><a href="#ai-wizards">AI Wizards</a></li>
+            <li><a href="#ai-bootcamp">AI Bootcamp</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Organisation</h3>
+          <ul>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Stories</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="contact.html">Partner with us</a></li>
+            <li><a href="https://x.com/datasafariio" target="_blank" rel="noopener noreferrer">@datasafariio</a></li>
+            <li><a href="https://www.datasafari.io" target="_blank" rel="noopener noreferrer">www.datasafari.io</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Data Safari &middot; Registered NGO &middot; The WHY Gives You The HOW! &middot; Open Source &#9829;</span>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const header = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+
+    window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 60), {passive:true});
+    header.classList.toggle("scrolled", window.scrollY > 60);
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = body.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+    navLinks.forEach(l => l.addEventListener("click", () => { body.classList.remove("menu-open"); menuToggle.setAttribute("aria-expanded","false"); }));
+
+    // Active nav
+    const cp = location.pathname.split('/').pop();
+    navLinks.forEach(a => { if(a.getAttribute('href') && a.getAttribute('href').includes(cp)) a.classList.add('nav-active'); });
+
+    if ("IntersectionObserver" in window) {
+      // Reveal
+      const ro = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("is-visible"); ro.unobserve(e.target); } }), {threshold:0.14});
+      document.querySelectorAll(".reveal").forEach(el => ro.observe(el));
+
+      // Chart animations
+      const co = new IntersectionObserver(entries => entries.forEach(e => {
+        if(e.isIntersecting) {
+          e.target.querySelectorAll(".chart-line,.chart-area").forEach(el => el.classList.add("is-animated"));
+          e.target.querySelectorAll(".scatter-dot").forEach((el,i) => { el.style.transitionDelay = (i*60)+"ms"; el.classList.add("is-animated"); });
+          e.target.querySelectorAll(".gantt-bar").forEach(el => el.classList.add("is-animated"));
+          co.unobserve(e.target);
+        }
+      }), {threshold:0.3});
+      document.querySelectorAll(".viz-panel").forEach(el => co.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
+      document.querySelectorAll(".chart-line,.chart-area,.gantt-bar").forEach(el => el.classList.add("is-animated"));
+      document.querySelectorAll(".scatter-dot").forEach(el => el.classList.add("is-animated"));
+    }
+  </script>
+</body>
+</html>
